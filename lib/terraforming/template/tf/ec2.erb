@@ -51,6 +51,10 @@ resource "aws_instance" "<%= module_name_of(instance) %>" {
         "<%= tag.key %>" = "<%= tag.value %>"
 <% end -%>
     }
+
+    lifecycle {
+      ignore_changes = ["user_data"]
+    }
 }
 
 <% end -%>
